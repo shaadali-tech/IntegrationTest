@@ -1,9 +1,21 @@
 import "./App.css";
+import { useState } from "react";
+import Login from "./Login";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [user, setUser] = useState(null);
 
-  return <></>;
+  return (
+    <main>
+      <h1>Integration Test Login</h1>
+      <Login onLogin={setUser} />
+      {user && (
+        <p role="status">
+          Logged in as {user.email}
+        </p>
+      )}
+    </main>
+  );
 }
 
 export default App;
